@@ -6,7 +6,7 @@ subjects = [
     "Stacks",
     "Linked Lists",
     "Binary Search",
-    "Sliding Windows",
+    "Sliding Window",
     "Trees",
     "Heaps",
     "Recursive Backtracking",
