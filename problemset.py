@@ -14,6 +14,8 @@ subjects = [
     "Dynamic Programming"
     ]
 
+difficulties = ["Easy", "Medium", "Hard"]
+
 # Problem_set ["Subject", "Difficulty", "Title", "Problem link", **"Completed"**]
 problem_set = [
     ["Arrays & Strings", "Easy", "Find Closest Number to Zero", "https://leetcode.com/problems/find-closest-number-to-zero/description/"],
