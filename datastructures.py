@@ -40,40 +40,6 @@ class LinkedList:
         return self.get_head_node().get_value()
 
 
-class Queue:
-
-    def __init__(self):
-        self.head = None
-        self.tail = None
-        self.length = 0
-
-    def enqueue(self, value):
-
-        item_to_add = Node(value)
-
-        if self.length == 0:
-            self.head = item_to_add
-            self.tail = item_to_add
-
-        else:
-            self.tail.set_next_node(item_to_add)
-            self.tail = item_to_add
-
-        self.length += 1
-
-    def dequeue(self):
-
-        if self.length > 0:
-            item_to_remove = self.head
-            self.head = item_to_remove.get_next_node()
-            self.length -= 1
-
-            return item_to_remove.get_value()
-
-        else:
-            return
-
-
 class HashMap:
 
     def __init__(self, array_size):
