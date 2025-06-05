@@ -29,20 +29,11 @@ def insert_problem_data():
         target_list.add_node(problem)
     return subjects_map
 
-def print_topics(runs):
-    if runs == 0:
-        print("\nAvailable topics:")
+def print_topics():
         for idx, subject in enumerate(subjects):
             print(idx+1, "- ", subject)
         return
-    else:
-        show_topics = str(input("\nDo you want to see the list of available topics again? type 'y' for yes or 'n' for no: ")).lower()
-        if show_topics == "y":
-            print_topics()
-        elif show_topics != "y" and show_topics != "n":
-            print("\nInvalid input, try again...")
-            print_topics(runs)
-
+    
 def get_topic():
     try:
         user_input = int(input("\nWhat topic are you studying today? Type the corrensponding number: "))
@@ -63,22 +54,63 @@ def get_difficulty():
         return difficulty
     except:
         print("Invalid input, try again...")
-        get_difficulty()
+        return get_difficulty()
+
+def print_problems(problem_list):
+    problems_head = problem_list.head
+    while problems_head:
+        print("--------------------------")
+        print(f"Name: {problems_head.get_value()[2]}")
+        print(f"Link: {problems_head.get_value()[3]}")
+        problems_head = problems_head.get_next_node()
+    return
+
+def repeat():
+    ans = input("\nDo you want to find other problems? Enter 'y' for yes and 'n' for no: ").lower()
+
+    if ans == "y":
+        return main()
+    elif ans != "n":
+        print("Invalid input, try again...")
+        return repeat()
+
+
 
 
 subjects_map = insert_problem_data()
 
-selected_topic = ""
-runs = 0
-
 print_welcome()
-while len(selected_topic) == 0:
+def main():
 
-    print_topics(runs)
+    print_topics()
+
+    topic = get_topic()
         
-    topic_map = subjects_map.retrieve(get_topic())
+    topic_map = subjects_map.retrieve(topic)
 
     difficulty = get_difficulty()
 
     problem_list = topic_map.retrieve(difficulty)
+
+    print(f"\nYou chose:\nTopic: {topic}\nDifficulty: {difficulty}")
+    
+    if problem_list.length >0:
+        print(f"\nHere are the recommended problems:")
+        print_problems(problem_list)
+
+    else:
+        print("\nThere are no recommended problems with this topic and level of difficulty.")
+
+    repeat()
+
+    print("\nThank you for using LeetRec!\nSee you next time!")
+
+
+
+
+
+
+
+main()
+
         
