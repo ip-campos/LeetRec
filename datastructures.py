@@ -18,6 +18,7 @@ class LinkedList:
 
     def __init__(self):
         self.head = None
+        self.length = 0
 
     def get_head_node(self):
         return self.head
@@ -32,6 +33,7 @@ class LinkedList:
         else:
             new_node.set_next_node(self.head)
             self.head = new_node
+        self.length += 1
         
     def get_head_value(self):
         if self.head is None:
