@@ -30,6 +30,7 @@ def insert_problem_data():
     return subjects_map
 
 def print_topics():
+        print("\nAvailable topics: ")
         for idx, subject in enumerate(subjects):
             print(idx+1, "- ", subject)
         return
